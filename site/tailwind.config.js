@@ -12,6 +12,7 @@ module.exports = {
       },
       colors: {
         primary: "#6271EB",
+        success: "#1ED760",
         gray: {
           DEFAULT: "#1D1F2B",
           50: "#DEE0E9",
