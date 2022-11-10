@@ -18,7 +18,7 @@ export default function Loading({ size = "sm", color = "#1C64F2" }: props) {
   return (
     <svg
       role="status"
-      className={`inline mr-2  ${sizes[size]}  text-gray-600 animate-spin dark:text-gray-600  `}
+      className={`inline  ${sizes[size]}  text-gray-600 animate-spin dark:text-gray-600  `}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

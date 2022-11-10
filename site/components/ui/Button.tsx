@@ -8,9 +8,9 @@ interface props {
   loading?: Boolean;
   href?: string;
   rounded?: Boolean;
-  rightIcon?: void | null;
-  leftIcon?: void | null;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  rightIcon?: JSX.Element | null;
+  leftIcon?: JSX.Element | null;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   children: JSX.Element | JSX.Element[] | String;
 }
 interface sizes {
@@ -55,7 +55,7 @@ export default function Button({
   return (
     <Element
       href={href ? href : {}}
-      onClick={(event) => (!href ? event.preventDefault() : onClick)}
+      onClick={!href ? onClick : undefined}
       className={`text-sm  font-medium text-center  ${
         loading ? isLoading : null
       }  ${variants[variant]} ${sizes[size]}  ${
@@ -63,16 +63,16 @@ export default function Button({
       } `}
     >
       {loading ? (
-        <div className="flex">
+        <div className="flex justify-center items-center w-fit h-fit">
           {" "}
           <Loading size={size} color="#1C64F2" />
-          <span className="my-auto mr-2 ">Loading</span>{" "}
+          {/* <span className="my-auto  ">Loading</span>{" "} */}
         </div>
       ) : (
         <>
-          {rightIcon}
+          {leftIcon ? <span>{leftIcon}</span> : null}
           {children}
-          {leftIcon}
+          {rightIcon ? <span className="ml-2">{rightIcon}</span> : null}
         </>
       )}
     </Element>
