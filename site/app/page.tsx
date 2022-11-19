@@ -8,15 +8,23 @@ export default function Page() {
     <div className="pl-10">
       <br />
       <br />
-      <Button rightIcon={<Loading size={"sm"} color={"red"} />}>
+      <Button
+        variant="light"
+        disabled
+        rounded="none"
+        uppercase
+        rightIcon={<Loading size={"sm"} color={"red"} />}
+      >
         Submit
       </Button>{" "}
       <br /> <br />
-      <Button loading size="sm" variant="success" rounded>
+      <Button loading size="sm" variant="success">
         Submit
       </Button>{" "}
       <br /> <br />
-      <Button size="lg">Submit</Button>
+      <Button size="lg" compact>
+        Submit
+      </Button>
       <br /> <br />
       <Button onClick={() => console.log("Hey")} size="md" variant="danger">
         Hey
