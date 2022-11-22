@@ -37,6 +37,7 @@ export default function Input({
           " flex justify-between focus:border-primary cursor-pointer py-[2px] border items-center focus:border bg-gray-800 px-3 rounded-[4px]"
         }
       >
+        {""}
         <input
           value={value}
           onChange={(e) => {
