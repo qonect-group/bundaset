@@ -1,2 +1,2 @@
 # bundaset
-bundaset music & entertainment platform
+# bundaset music & entertainment platform
