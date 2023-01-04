@@ -1,4 +1,5 @@
 import "@styles/globals.css";
+import font from "config/fonts";
 
 export default function RootLayout({
   children,
@@ -7,7 +8,13 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <head></head>
+      <head>
+        <style jsx global>{`
+          html {
+            font-family: ${font.style.fontFamily};
+          }
+        `}</style>
+      </head>
       <body>{children}</body>
     </html>
   );
