@@ -1,11 +1,14 @@
-import { HTMLInputTypeAttribute } from "react";
-
+import { HTMLInputTypeAttribute, useState } from "react";
+export type Variant = "normal" | "fill" | "outlined";
+export type Rounded = "sm" | "md" | "lg" | "full" | "none";
+export type Size = "sm" | "md" | "lg";
 interface props {
-  variant?: "normal" | "fill" | "outlined";
-  size?: "sm" | "md" | "lg";
+  variant?: Variant;
+  size?: Size;
   type: HTMLInputTypeAttribute;
-  rounded?: "sm" | "md" | "lg" | "full" | "none";
+  rounded: Rounded;
   disabled?: boolean;
+  errorMsg?: String;
   placeholder: string;
   invalid?: Boolean;
   label?: String;
@@ -38,8 +41,10 @@ export default function Input({
   rounded = "sm",
   disabled = false,
   invalid = false,
+  errorMsg = "*Description of the error",
   label,
 }: props) {
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const borderRadius: radius = {
     sm: "rounded",
     md: "rounded-md",
@@ -48,10 +53,10 @@ export default function Input({
     full: "rounded-full",
   };
   const variants: variants = {
-    fill: "bg-primary-50 text-white border border-transparent",
+    fill: "bg-gray-800 text-gray-200 border border-transparent",
     outlined:
       "border border-gray-400  placeholder:text-primary-200 bg-transparent  placeholder:opacity-80",
-    normal: "bg-primary-100 text-white border border-transparent",
+    normal: "bg-primary-100 text-gray-200 border border-transparent",
   };
   const sizes: sizes = {
     sm: "px-3 py-2 text-xs",
@@ -74,6 +79,9 @@ export default function Input({
       ) : null}
       <input
         disabled={disabled}
+        onFocus={() => {
+          setIsFocused(!invalid);
+        }}
         className={`
       w-full text-gray-200 capitalze cursor-text focus-within:border-primary focus-within:border  placeholder:capitalize outline-none text-sm 
       ${borderRadius[rounded]} 
@@ -81,9 +89,9 @@ export default function Input({
       ${sizes[size]}
       ${
         disabled
-          ? "bg-gray-700 text-gray-800 opacity-90  cursor-default"
+          ? " select-none bg-opacity-70  cursor-default"
           : invalid
-          ? "border border-red-800 text-red-800  bg-transparent focus-within:border-red-800 focus-within:border"
+          ? "border border-red-800 text-red-800  bg-transparent focus:text-gray-200"
           : variants[variant]
       }
       `}
@@ -91,6 +99,9 @@ export default function Input({
         type={type}
         onChange={onChange}
       />
+      {invalid && isFocused === false && (
+        <span className="text-sm text-red-800">{errorMsg}</span>
+      )}
     </div>
   );
 }

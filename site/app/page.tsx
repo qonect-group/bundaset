@@ -1,5 +1,5 @@
 "use client";
-import Input from "@components/ui/Input";
+import Input, { Rounded, Size, Variant } from "@components/ui/Input";
 import MultiSelect from "@components/ui/MultiSelect";
 import Select from "@components/ui/Select";
 import Switch from "@components/Switch";
@@ -10,9 +10,9 @@ export default function Page() {
   const [autoCompleteValue, setautoCompleteValue] = useState<string>();
   const [multiValues, setmultiValues] = useState<any>([]);
   const [checked, setchecked] = useState(false);
-  const [variantvalue, setVariantValue] = useState<any>("normal");
-  const [radiusValue, setRadiusValue] = useState<any>("md");
-  const [sizeValue, SetSizeValue] = useState<any>("md");
+  const [variantvalue, setVariantValue] = useState<Variant>("normal");
+  const [radiusValue, setRadiusValue] = useState<Rounded>("sm");
+  const [sizeValue, SetSizeValue] = useState<Size>("md");
   const [isDisabledValue, SetIsDisabledValue] = useState(false);
   const [isInvalid, SetIsInvalidValue] = useState(false);
   return (
@@ -26,6 +26,7 @@ export default function Page() {
           invalid={isInvalid}
           size={sizeValue}
           variant={variantvalue}
+          errorMsg="*Description of the error"
           placeholder="Add placeholder"
         />
         <div className="flex gap-4 flex-wrap">
@@ -70,7 +71,6 @@ export default function Page() {
         </div>
         <div></div>
       </div>
-
       <div className="my-6">
         <MultiSelect
           onChange={setmultiValues}
