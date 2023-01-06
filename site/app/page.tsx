@@ -1,5 +1,5 @@
 "use client";
-
+import Input, { Rounded, Size, Variant } from "@components/ui/Input";
 import MultiSelect from "@components/ui/MultiSelect";
 import Select from "@components/ui/Select";
 import Switch from "@components/Switch";
@@ -10,18 +10,66 @@ export default function Page() {
   const [autoCompleteValue, setautoCompleteValue] = useState<string>();
   const [multiValues, setmultiValues] = useState<any>([]);
   const [checked, setchecked] = useState(false);
-
+  const [variantvalue, setVariantValue] = useState<Variant>("normal");
+  const [radiusValue, setRadiusValue] = useState<Rounded>("sm");
+  const [sizeValue, SetSizeValue] = useState<Size>("md");
+  const [isDisabledValue, SetIsDisabledValue] = useState(false);
+  const [isInvalid, SetIsInvalidValue] = useState(false);
   return (
-    <div className="px-4">
-      <div className="my-6">
-        <Select
-          creatable
-          onChange={setautoCompleteValue}
-          value={autoCompleteValue}
-          label="Your favorite framework/library"
-          placeholder="Favorite Framework"
-          data={["React", "Angular", "Svelte", "Vue"]}
+    <div>
+      <div className="w-2/5 space-y-10 p-5  mt-10">
+        <Input
+          label="lable"
+          type="email"
+          rounded={radiusValue}
+          disabled={isDisabledValue}
+          invalid={isInvalid}
+          size={sizeValue}
+          variant={variantvalue}
+          errorMsg="*Description of the error"
+          placeholder="Add placeholder"
         />
+        <div className="flex gap-4 flex-wrap">
+          <Select
+            creatable
+            onChange={setVariantValue}
+            value={variantvalue}
+            label="Variant"
+            placeholder="Input's Variant"
+            data={["normal", "fill", "outlined"]}
+          />
+          <Select
+            creatable
+            onChange={setRadiusValue}
+            value={radiusValue}
+            label="Radius"
+            placeholder="Input's Radius"
+            data={["sm", "md", "lg", "full", "none"]}
+          />
+          <Select
+            creatable
+            onChange={SetSizeValue}
+            value={sizeValue}
+            label="Size"
+            placeholder="Input's Size"
+            data={["sm", "md", "lg"]}
+          />
+          <div className="flex gap-2 my-auto">
+            <Switch
+              onChange={() => {
+                SetIsDisabledValue(!isDisabledValue);
+              }}
+              label="Disabled"
+            />
+            <Switch
+              onChange={() => {
+                SetIsInvalidValue(!isInvalid);
+              }}
+              label="Invalid"
+            />
+          </div>
+        </div>
+        <div></div>
       </div>
       <div className="my-6">
         <MultiSelect
