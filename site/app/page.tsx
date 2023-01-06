@@ -9,38 +9,26 @@ export default function Page() {
   const [checked, setchecked] = useState(false);
   return (
     <div>
-      <div className="w-2/5 m-auto space-y-10 p-10">
+      <div className="w-2/5 m-auto space-y-10 p-10 border mt-10">
         <Input
           label="lable"
-          type="text"
+          type="email"
+          variant="outlined"
+          placeholder="Add placeholder"
+        />
+        <Input
+          label="lable"
+          type="email"
+          variant="fill"
+          placeholder="Add placeholder"
+        />
+        <Input
+          label="lable"
+          type="email"
           variant="normal"
           placeholder="Add placeholder"
         />
-        <Input type="text" variant="fill" placeholder="Add placeholder" />
-        <Input type="text" variant="outlined" placeholder="Add placeholder" />
-
-        <Input
-          type="text"
-          label="lable"
-          size="sm"
-          placeholder="Add placeholder"
-        />
-        <Input type="text" placeholder="Add placeholder" />
-        <Input
-          type="text"
-          label="lable"
-          size="lg"
-          placeholder="Add placeholder"
-        />
-
-        <Input type="text" disabled placeholder="Add placeholder" />
-        <Input type="text" invalid placeholder="Add placeholder" />
-
-        <Input type="text" rounded="full" placeholder="Add placeholder" />
-        <Input type="text" rounded="lg" placeholder="Add placeholder" />
-        <Input type="text" rounded="md" placeholder="Add placeholder" />
-        <Input type="text" rounded="sm" placeholder="Add placeholder" />
-        <Input type="text" rounded="none" placeholder="Add placeholder" />
+        <div></div>
       </div>
       <div className="m-5">
         <Radio

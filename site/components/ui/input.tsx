@@ -48,10 +48,10 @@ export default function Input({
     full: "rounded-full",
   };
   const variants: variants = {
-    fill: "bg-primary-50 text-white ",
+    fill: "bg-primary-50 text-white border border-transparent",
     outlined:
-      "border border-primary-100 bg-transparent placeholder:text-primary-100  placeholder:opacity-80",
-    normal: "bg-primary-100 text-white",
+      "border border-gray-400 bg-transpart placeholder:text-primary-200  placeholder:opacity-80",
+    normal: "bg-primary-100 text-white border border-transparent",
   };
   const sizes: sizes = {
     sm: "px-3 py-2 text-xs",
@@ -66,12 +66,16 @@ export default function Input({
   return (
     <div>
       {label ? (
-        <label className={`font-bold ${lableSize[size]}`}>{label}</label>
+        <label
+          className={`mb-2 text-sm font-medium text-gray-200 ${lableSize[size]}`}
+        >
+          {label}
+        </label>
       ) : null}
       <input
         disabled={disabled}
         className={`
-      w-full  outline-none m-0 placeholder:text-light 
+      w-full text-gray-200 bg-transparent  capitalze cursor-text focus-within:border-primary focus-within:border  placeholder:capitalize outline-none text-sm 
       ${borderRadius[rounded]} 
       ${label ? "mt-1" : ""}
       ${sizes[size]}
