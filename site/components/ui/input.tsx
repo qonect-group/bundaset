@@ -50,12 +50,12 @@ export default function Input({
   const variants: variants = {
     fill: "bg-primary-50 text-white border border-transparent",
     outlined:
-      "border border-gray-400 bg-transpart placeholder:text-primary-200  placeholder:opacity-80",
+      "border border-gray-400  placeholder:text-primary-200 bg-transparent  placeholder:opacity-80",
     normal: "bg-primary-100 text-white border border-transparent",
   };
   const sizes: sizes = {
     sm: "px-3 py-2 text-xs",
-    md: "px-6 py-4 ",
+    md: "px-4 py-3 ",
     lg: "px-8 py-6 ",
   };
   const lableSize: sizes = {
@@ -75,7 +75,7 @@ export default function Input({
       <input
         disabled={disabled}
         className={`
-      w-full text-gray-200 bg-transparent  capitalze cursor-text focus-within:border-primary focus-within:border  placeholder:capitalize outline-none text-sm 
+      w-full text-gray-200 capitalze cursor-text focus-within:border-primary focus-within:border  placeholder:capitalize outline-none text-sm 
       ${borderRadius[rounded]} 
       ${label ? "mt-1" : ""}
       ${sizes[size]}
@@ -83,7 +83,7 @@ export default function Input({
         disabled
           ? "bg-gray-700 text-gray-800 opacity-90  cursor-default"
           : invalid
-          ? "border border-red-800 text-red-800"
+          ? "border border-red-800 text-red-800  bg-transparent focus-within:border-red-800 focus-within:border"
           : variants[variant]
       }
       `}
