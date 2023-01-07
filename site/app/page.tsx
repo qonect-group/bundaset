@@ -1,20 +1,13 @@
 "use client";
 
 import Button from "@components/ui/Button";
-import Loading from "@components/ui/loading";
-
+import { Camera } from "react-feather";
 export default function Page() {
   return (
     <div className="pl-10">
       <br />
       <br />
-      <Button
-        variant="light"
-        disabled
-        rounded="none"
-        uppercase
-        rightIcon={<Loading size={"sm"} color={"red"} />}
-      >
+      <Button variant="light" disabled uppercase>
         Submit
       </Button>{" "}
       <br /> <br />
@@ -22,7 +15,15 @@ export default function Page() {
         Submit
       </Button>{" "}
       <br /> <br />
-      <Button size="lg" compact>
+      <Button size="md" LeftIcon={Camera}>
+        Submit
+      </Button>{" "}
+      <br /> <br />
+      <Button size="sm" RightIcon={Camera}>
+        Submit
+      </Button>{" "}
+      <br /> <br />
+      <Button loading size="lg" compact>
         Submit
       </Button>
       <br /> <br />

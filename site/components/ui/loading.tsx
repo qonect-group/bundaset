@@ -1,7 +1,7 @@
 import React from "react";
 interface props {
-  size: "sm" | "md" | "lg";
-  color: string;
+  size?: "sm" | "md" | "lg";
+  color?: string;
 }
 interface sizes {
   sm: string;
@@ -9,11 +9,11 @@ interface sizes {
   lg: string;
 }
 
-export default function Loading({ size = "sm", color = "#1C64F2" }: props) {
+export default function Loading({ size = "sm", color = "white" }: props) {
   const sizes: sizes = {
     sm: "w-4 h-4",
-    md: "w-8 h-8",
-    lg: "w-10 h-10",
+    md: "w-5 h-5",
+    lg: "w-6 h-6",
   };
   return (
     <svg

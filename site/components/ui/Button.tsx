@@ -18,34 +18,11 @@ interface props {
   compact?: Boolean;
   uppercase?: Boolean;
   disabled?: Boolean;
-  rightIcon?: JSX.Element | null;
-  leftIcon?: JSX.Element | null;
+  LeftIcon?: React.FC;
+  RightIcon?: React.FC;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   children: JSX.Element | JSX.Element[] | String;
 }
-interface sizes {
-  sm: string;
-  md: string;
-  lg: string;
-}
-interface radius {
-  sm: string;
-  md: string;
-  lg: string;
-  full: string;
-  none: string;
-}
-
-interface variants {
-  danger: string;
-  primary: string;
-  success: string;
-  light: string;
-  subtle: string;
-  outlined: string;
-  normal: string;
-}
-
 export default function Button({
   variant = "primary",
   size = "md",
@@ -57,18 +34,18 @@ export default function Button({
   compact,
   uppercase = false,
   disabled = false,
-  rightIcon = null,
-  leftIcon = null,
+  LeftIcon,
+  RightIcon,
 }: props) {
   const Element = href ? Link : "button";
-  const borderRadius: radius = {
+  const borderRadius = {
     sm: "rounded",
     md: "rounded-md",
     lg: "rounded-lg",
     none: "rounded-none",
     full: "rounded-full",
   };
-  const variants: variants = {
+  const variants = {
     danger: "bg-red-500 text-white",
     primary: "bg-primary text-white",
     success: "bg-success text-white",
@@ -77,7 +54,7 @@ export default function Button({
     outlined: "bg-transparent border border-primary text-primary",
     normal: "bg-gray-700 text-white",
   };
-  const sizes: sizes = {
+  const sizes = {
     sm: "py-2 px-6 text-xs",
     md: "py-3 px-12 ",
     lg: "px-24 py-3 ",
@@ -87,31 +64,29 @@ export default function Button({
     <Element
       href={href ? href : {}}
       onClick={!href ? onClick : undefined}
-      className={`text-sm   font-medium text-center  ${
-        loading ? isLoading : "hover:opacity-90"
-      }  
+      className={`text-sm   font-medium text-center   
       ${compact ? "p-2" : sizes[size]}  
       ${borderRadius[rounded]} 
       ${uppercase ? "uppercase" : ""}
+      ${variants[variant]}
       ${
         disabled
-          ? "bg-gray-700 text-gray-800 opacity-90  cursor-default"
-          : variants[variant]
+          ? " opacity-60 cursor-not-allowed"
+          : `${loading ? isLoading : "hover:opacity-90"} `
       }
       `}
     >
       {loading ? (
-        <div className="flex justify-center items-center hover:opacity-100 w-fit h-fit">
-          {" "}
-          <Loading size={size} color="#1C64F2" />
-          {/* <span className="my-auto  ">Loading</span>{" "} */}
+        <div className="flex justify-center gap-2 items-center hover:opacity-100 w-fit h-fit">
+          <Loading />
+          <span className="my-auto"> {children}</span>
         </div>
       ) : (
-        <>
-          {leftIcon ? <span>{leftIcon}</span> : null}
-          {children}
-          {rightIcon ? <span className="ml-2">{rightIcon}</span> : null}
-        </>
+        <span className="flex gap-2 justify-between">
+          {LeftIcon && <LeftIcon />}
+          <span className="my-auto"> {children}</span>
+          {RightIcon && <RightIcon />}
+        </span>
       )}
     </Element>
   );
