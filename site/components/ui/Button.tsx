@@ -64,10 +64,11 @@ export default function Button({
     <Element
       href={href ? href : {}}
       onClick={!href ? onClick : undefined}
-      className={`text-sm   font-medium text-center   
+      className={`text-sm font-medium text-center  
       ${compact ? "p-2" : sizes[size]}  
       ${borderRadius[rounded]} 
       ${uppercase ? "uppercase" : ""}
+      ${href && "flex justify-center items-center"}
       ${variants[variant]}
       ${
         disabled

@@ -7,15 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Poppins", "arial"],
-      },
       colors: {
         primary: "#6271EB",
-        light: "#7482F2",
+        // light: "#7482F2",
         success: "#1ED760",
+        primary: {
+          DEFAULT: "#6271EB",
+          50: "#2B2D3D",
+          100: "#242634",
+        },
+        light: "#A8A8A8",
         gray: {
-          DEFAULT: "#1D1F2B",
           50: "#DEE0E9",
           100: "#CFD1DE",
           200: "#B0B4CA",
