@@ -52,11 +52,13 @@ export default function Button({
     light: "bg-light text-white",
     subtle: "bg-transparent text-primary",
     outlined: "bg-transparent border border-primary text-primary",
+    default:
+      "border border-gray-700 text-gray-300  hover:bg-gray-600 hover:bg-opacity-25",
     normal: "bg-gray-700 text-white",
   };
   const sizes = {
     sm: "px-4 py-[6px]  leading-4 font-medium  text-[13px] ",
-    md: "px-4 py-[9px] font-medium text-sm",
+    md: "px-6 py-2 font-medium text-sm",
     lg: "px-5 py-3 font-medium text-base",
   };
   let isLoading = "cursor-wait opacity-50";
@@ -64,11 +66,11 @@ export default function Button({
     <Element
       href={href ? href : {}}
       onClick={!href ? onClick : undefined}
-      className={`text-[13px] font-medium text-center  
+      className={`text-[13px] font-medium text-center
       ${compact ? "p-2" : sizes[size]}  
       ${borderRadius[rounded]} 
       ${uppercase ? "uppercase" : ""}
-      ${href && "flex justify-center items-center"}
+      ${"flex justify-center items-center w-full"}
       ${variants[variant]}
       ${
         disabled
