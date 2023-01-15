@@ -4,7 +4,7 @@ import { Camera } from "react-feather";
 import Input, { Rounded, Size, Variant } from "@components/ui/Input";
 import MultiSelect from "@components/ui/MultiSelect";
 import Select from "@components/ui/Select";
-import Switch from "@components/Switch";
+import Switch from "@components/ui/Switch";
 import Checkbox from "@components/ui/Checkbox";
 import Radio from "@components/ui/Radio";
 import React, { useState } from "react";

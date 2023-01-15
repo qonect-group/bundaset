@@ -1,3 +1,4 @@
+import AppLayout from "@components/layouts/AppLayout";
 import "@styles/globals.css";
 import font from "config/fonts";
 
@@ -15,7 +16,9 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body>{children}</body>
+      <body>
+        <AppLayout>{children}</AppLayout>
+      </body>
     </html>
   );
 }
