@@ -18,8 +18,8 @@ interface props {
   compact?: Boolean;
   uppercase?: Boolean;
   disabled?: Boolean;
-  LeftIcon?: React.FC;
-  RightIcon?: React.FC;
+  LeftIcon?: any;
+  RightIcon?: any;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   children: JSX.Element | JSX.Element[] | String;
 }
@@ -39,7 +39,7 @@ export default function Button({
 }: props) {
   const Element = href ? Link : "button";
   const borderRadius = {
-    sm: "rounded",
+    sm: "rounded-[4px]",
     md: "rounded-md",
     lg: "rounded-lg",
     none: "rounded-none",
@@ -55,16 +55,16 @@ export default function Button({
     normal: "bg-gray-700 text-white",
   };
   const sizes = {
-    sm: "py-2 px-6 text-xs",
-    md: "py-3 px-12 ",
-    lg: "px-24 py-3 ",
+    sm: "px-4 py-[6px]  leading-4 font-medium  text-[13px] ",
+    md: "px-4 py-[9px] font-medium text-sm",
+    lg: "px-5 py-3 font-medium text-base",
   };
   let isLoading = "cursor-wait opacity-50";
   return (
     <Element
       href={href ? href : {}}
       onClick={!href ? onClick : undefined}
-      className={`text-sm font-medium text-center  
+      className={`text-[13px] font-medium text-center  
       ${compact ? "p-2" : sizes[size]}  
       ${borderRadius[rounded]} 
       ${uppercase ? "uppercase" : ""}
@@ -83,10 +83,10 @@ export default function Button({
           <span className="my-auto"> {children}</span>
         </div>
       ) : (
-        <span className="flex gap-2 justify-between">
-          {LeftIcon && <LeftIcon />}
-          <span className="my-auto"> {children}</span>
-          {RightIcon && <RightIcon />}
+        <span className="flex gap-3 items-center justify-between">
+          {LeftIcon && <LeftIcon size={16} />}
+          <span className=""> {children}</span>
+          {RightIcon && <RightIcon size={16} />}
         </span>
       )}
     </Element>
