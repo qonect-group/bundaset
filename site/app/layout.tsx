@@ -9,6 +9,7 @@ export default function RootLayout({
   return (
     <html>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style jsx global>{`
           html {
             font-family: ${font.style.fontFamily};
