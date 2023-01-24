@@ -10,21 +10,17 @@ export default function ProfileMenu({ profileMenu, setProfileMenu }: any) {
     {
       title: "profile",
       icon: User,
-      onclick:()=>{
-        
-      }
+      onclick: () => {},
     },
     {
       title: "settings",
       icon: Settings,
-      onclick:()=>{}
-
+      onclick: () => {},
     },
     {
       title: "logout",
       icon: LogOut,
-      onclick:()=>{}
-
+      onclick: () => {},
     },
   ];
   useClickOutside(refProfileMenu, () => setProfileMenu(false));
@@ -55,8 +51,8 @@ export default function ProfileMenu({ profileMenu, setProfileMenu }: any) {
           <div className="flex flex-col my-1">
             {ProfileMenu.map((v, k) => {
               return (
-                <a
-                onClick={v.onclick}
+                <div
+                  onClick={v.onclick}
                   className="flex py-[10px] hover:bg-gray-700 hover:bg-opacity-25 rounded-[4px] mx-2 cursor-pointer px-3 items-center text-white gap-4 my-[2px]"
                   key={k}
                 >

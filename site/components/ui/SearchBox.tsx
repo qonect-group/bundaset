@@ -8,10 +8,7 @@ export default function SearchBox() {
   const refCategoryMenu = useRef(null);
   useClickOutside(refCategoryMenu, () => setCategoryMenu(false));
   return (
-    <div
-      ref={refCategoryMenu}
-      className="flex z-50  items-center w-full bg-gray-800 border rounded-full border-gray-700 px-4 py-[10px] gap-6 justify-between "
-    >
+    <div className="flex z-50  items-center w-full bg-gray-800 border rounded-full border-gray-700 px-4 py-[10px] gap-6 justify-between ">
       <div className="flex items-center w-full gap-3">
         <Search size={18} />
         <input
@@ -23,10 +20,11 @@ export default function SearchBox() {
       <div
         className="flex gap-2 text-base items-center relative cursor-pointer"
         onClick={() => setCategoryMenu(!categoryMenu)}
+        ref={refCategoryMenu}
       >
         <span className="text-[13px] capitalize font-medium">{searchMenu}</span>
         <ChevronDown width={16} />
-        {categoryMenu && (
+        <div className={categoryMenu ? "block" : "hidden"}>
           <div className="absolute top-7 z-50 border right-0 border-gray-700 shadow-lg  rounded-sm w-32 bg-gray-800 overflow-hidden">
             {["tracks", "albums", "playlists"].map((v, k) => {
               return (
@@ -48,7 +46,7 @@ export default function SearchBox() {
               );
             })}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
